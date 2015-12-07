@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.text.DefaultCaret;
 import org.jdesktop.layout.GroupLayout;
 import org.jdesktop.layout.GroupLayout.ParallelGroup;
 import org.jdesktop.layout.GroupLayout.SequentialGroup;
@@ -108,6 +109,11 @@ public class VCliente
 
         layout.setVerticalGroup(layout.createParallelGroup(1).add(layout.createSequentialGroup().addContainerGap().add(this.jLabel1).addPreferredGap(0).add(layout.createParallelGroup(3).add(this.jLabel2).add(this.jTextField1, -2, -1, -2).add(this.jLabel3).add(this.jTextField2, -2, -1, -2)).addPreferredGap(0).add(layout.createParallelGroup(3).add(this.jTextField4, -2, -1, -2).add(this.jLabel4)).addPreferredGap(0).add(layout.createParallelGroup(3).add(this.jButton1).add(this.jButton2).add(this.jLabel5)).addPreferredGap(0).add(layout.createParallelGroup(1, false).add(this.jScrollPane1).add(this.jScrollPane2, -1, 219, 32767)).add(18, 18, 18).add(this.jTextField3, -2, -1, -2).addContainerGap(-1, 32767)));
 
+        
+        DefaultCaret caret = (DefaultCaret) jTextArea1.getCaret(); // ←
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE); 
+        
+        
         pack();
     }
 
@@ -167,6 +173,7 @@ public class VCliente
 
     public void mensajeRecibido(String sMensaje) {
         this.jTextArea1.append(sMensaje + "\n");
+//        this.jTextArea1.setCaretPosition(jTextArea1.getRows());
     }
 
     public void nuevaPersona(String nick) {
